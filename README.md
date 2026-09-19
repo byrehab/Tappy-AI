@@ -6,7 +6,7 @@ A UX/UI case study for an AI-powered feature concept within the Tabby app, desig
 
 About the Project
 
-Most BNPL flows focus on "how do I pay?" — this concept shifts the question to "does this actually work for me?"
+Most BNPL flows focus on "how do I pay?" this concept shifts the question to "does this actually work for me?"
 
 Smart Payment Advisor is an AI assistant that analyzes a user's ability to comfortably take on a new installment plan, based on:
 
@@ -40,7 +40,7 @@ Suggests a plan automatically when the user is unsure
 Calculates a Purchase Fit score based on visible commitments
 Explains every result through a "Why?" breakdown
 Built With
-Plain HTML / CSS — no frameworks
+Plain HTML / CSS, no frameworks
 Vanilla JavaScript for the interactive prototype
 Fully responsive layout with native RTL support
 Disclaimer
