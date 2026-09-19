@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tabby AI — Smart Payment Advisor</title>
+<meta name="description" content="UX/UI case study concept for Tabby AI — Smart Payment Advisor" />
+<style>
+  :root{
+    --ink:#111111;
+    --muted:#6e6e6e;
+    --line:#e8e8e8;
+    --soft:#f6f6f4;
+    --soft2:#f0f0ec;
+    --tabby:#00d6a3;
+    --tabby-deep:#00a97f;
+    --white:#fff;
+    --danger:#ef5350;
+    --warn:#e6a22b;
+    --ok:#1daf72;
+    --shadow:0 18px 55px rgba(0,0,0,.08);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92vw);margin:auto}
+  .nav{
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,.82);
+    border-bottom:1px solid rgba(0,0,0,.06)
+  }
+  .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.03em}
+  .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--tabby);display:grid;place-items:center;color:#07110e;font-size:17px;font-weight:900
+  }
+  .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .nav-links a{font-size:13px;color:#666}
+  .nav-links a:hover{color:#111}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;font-weight:700;padding:7px 11px;border-radius:999px;
+    background:#111;color:#fff
+  }
+  .hero{
+    position:relative;overflow:hidden;
+    padding:88px 0 72px;
+    background:
+      radial-gradient(circle at 85% 12%, rgba(0,214,163,.17), transparent 30%),
+      radial-gradient(circle at 14% 30%, rgba(0,0,0,.06), transparent 25%),
+      #fff;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:.06em;color:#767676;text-transform:uppercase;margin-bottom:12px}
+  h1{font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.06em;margin:0 0 22px}
+  h1 span{display:block}
+  .accent{color:var(--tabby-deep)}
+  .lead{font-size:20px;color:#4d4d4d;max-width:670px;margin:0 0 28px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    border:0;border-radius:999px;padding:13px 18px;font-weight:800;cursor:pointer;
+    font-size:14px;display:inline-flex;align-items:center;gap:8px
+  }
+  .btn-primary{background:#111;color:#fff}
+  .btn-secondary{background:var(--soft);color:#111}
+  .hero-note{margin-top:18px;font-size:12px;color:#808080}
+  .hero-card{
+    background:#111;border-radius:36px;padding:18px;box-shadow:var(--shadow);
+    transform:rotate(1.3deg)
+  }
+  .phone{
+    width:min(345px,100%);margin:auto;background:#fff;border-radius:34px;overflow:hidden;
+    border:1px solid #202020;box-shadow:0 20px 60px rgba(0,0,0,.2)
+  }
+  .phone-top{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+  .tiny-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#737373}
+  .product{padding:18px}
+  .product-visual{
+    height:200px;border-radius:22px;background:linear-gradient(135deg,#f7f7f6,#ecece8);
+    display:grid;place-items:center;font-size:64px;margin-bottom:16px
+  }
+  .product-title{font-weight:900;font-size:22px;letter-spacing:-.03em}
+  .price{font-size:17px;font-weight:800;margin:4px 0 12px}
+  .ai-card{
+    padding:16px;border:1.5px solid #d7f4eb;background:#f5fffc;border-radius:18px
+  }
+  .ai-head{display:flex;align-items:center;gap:8px;font-weight:900}
+  .ai-dot{width:10px;height:10px;border-radius:50%;background:var(--tabby)}
+  .mini-score{margin-top:11px;font-size:30px;font-weight:950;letter-spacing:-.04em}
+  .mini-copy{font-size:12px;color:#5f5f5f}
+  section{padding:95px 0;border-top:1px solid #eee}
+  .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+  .section-kicker{font-size:12px;font-weight:900;letter-spacing:.08em;color:#888;text-transform:uppercase}
+  h2{font-size:clamp(36px,5vw,60px);line-height:1.02;letter-spacing:-.05em;margin:6px 0 0}
+  .section-intro{max-width:510px;color:#626262;margin:0;font-size:16px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--soft);border-radius:var(--radius);padding:28px}
+  .card.white{background:#fff;border:1px solid var(--line)}
+  .card h3{margin:0 0 8px;font-size:22px;letter-spacing:-.03em}
+  .card p{margin:0;color:#5f5f5f}
+  .card p{margin:0;color:#5f5f5f;text-align:justify;text-align-last:right}
+  .quote{
+    margin-top:22px;padding:27px 30px;border-radius:24px;background:#111;color:#fff;
+    font-size:25px;line-height:1.45;font-weight:800;letter-spacing:-.03em
+  }
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .stat{padding:26px;border:1px solid var(--line);border-radius:24px}
+  .stat strong{display:block;font-size:42px;line-height:1;letter-spacing:-.05em}
+  .stat span{display:block;color:#666;margin-top:10px;font-size:13px}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:24px}
+  table{width:100%;border-collapse:collapse;min-width:760px;background:#fff}
+  th,td{padding:17px;border-bottom:1px solid var(--line);text-align:right;font-size:14px}
+  th{background:#fafafa;font-size:12px;color:#777}
+  tr:last-child td{border-bottom:0}
+  .yes{font-weight:900}
+  .focus-cell{background:#effff9;font-weight:900}
+  .flow{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px
+  }
+  .node{
+    padding:13px 15px;border-radius:18px;background:#fff;border:1px solid #dedede;
+    font-size:13px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.03)
+  }
+  .node.core{background:#111;color:#fff;border-color:#111}
+  .arrow{color:#9c9c9c;font-size:18px}
+  .screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .screen-card{background:#111;border-radius:28px;padding:12px;color:#fff}
+  .screen-shell{background:#fff;color:#111;border-radius:21px;padding:14px;min-height:430px}
+  .screen-top{font-size:11px;color:#777;display:flex;justify-content:space-between;margin-bottom:14px}
+  .screen-title{font-size:24px;font-weight:950;line-height:1.05;letter-spacing:-.04em;margin-bottom:10px}
+  .question{font-size:17px;font-weight:850;margin-bottom:15px}
+  .choice{border:1px solid #ddd;border-radius:15px;padding:11px;margin:8px 0;font-size:12px;background:#fff}
+  .choice.sel{border:2px solid #111;background:#f7f7f4;font-weight:900}
+  .score-box{border:1px solid #d8eee7;border-radius:17px;padding:15px;background:#f5fffc}
+  .score{font-size:38px;font-weight:950;line-height:1}
+  .status{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:900;margin-top:8px}
+  .status.ok{background:#dcf8eb;color:#087243}
+  .status.warn{background:#fff0cf;color:#8a5a00}
+  .status.bad{background:#ffe1e0;color:#9c2422}
+  .mock-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eee;font-size:12px}
+  .mock-row:last-child{border-bottom:0}
+  .flow-section{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  .steps{display:grid;gap:12px}
+  .step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+  .step-num{
+    width:42px;height:42px;border-radius:14px;background:#111;color:#fff;display:grid;place-items:center;font-weight:900
+  }
+  .step h4{margin:0 0 4px;font-size:17px}.step p{margin:0;color:#666;font-size:14px}
+  .logic{
+    background:linear-gradient(180deg,#111,#191919);color:#fff;border-radius:28px;padding:26px
+  }
+  .logic h3{margin-top:0}
+  .logic-line{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:13px}
+  .logic-line:last-child{border-bottom:0}
+  .prototype{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}
+  .demo-wrap{background:#111;border-radius:34px;padding:18px;box-shadow:var(--shadow)}
+  .demo-phone{width:min(360px,100%);margin:auto;background:#fff;border-radius:28px;overflow:hidden;min-height:650px}
+  .demo-header{padding:18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .demo-body{padding:20px}
+  .demo-body h3{font-size:32px;line-height:1.02;letter-spacing:-.04em;margin:0 0 10px}
+  .demo-sub{color:#6f6f6f;font-size:13px;margin-bottom:20px}
+  .demo-footer{padding:18px;border-top:1px solid var(--line)}
+  .meter{height:7px;background:#ececec;border-radius:99px;overflow:hidden;margin:7px 0 22px}
+  .meter span{display:block;height:100%;background:var(--tabby);width:33%}
+  .pill-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pill{
+    border:1px solid #ddd;border-radius:16px;padding:13px;background:#fff;text-align:center;font-weight:800;cursor:pointer
+  }
+  .pill.active{background:#111;color:#fff;border-color:#111}
+  .result-big{padding:18px;border-radius:22px;background:#111;color:#fff}
+  .result-big .r-score{font-size:68px;font-weight:950;line-height:1;letter-spacing:-.07em}
+  .result-big .r-label{font-size:14px;opacity:.75}
+  .reason{padding:15px;border-radius:18px;background:#f6f6f4;margin-top:14px}
+  .reason strong{display:block;margin-bottom:6px}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+  .source-list{display:grid;gap:10px}
+  .source{
+    display:flex;justify-content:space-between;gap:12px;align-items:center;
+    padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff
+  }
+  .source span{font-size:13px;color:#565656}
+  .source a{font-size:12px;font-weight:900}
+  .footer{padding:45px 0 70px;color:#7a7a7a;font-size:12px}
+  .notice{padding:16px 18px;border-radius:18px;background:#f8f8f6;border:1px dashed #ccc;font-size:12px;color:#666}
+  @media(max-width:900px){
+    .hero-grid,.grid-2,.flow-section,.prototype{grid-template-columns:1fr}
+    .grid-3,.screen-grid,.stats{grid-template-columns:1fr}
+    .section-head{display:block}.section-intro{margin-top:14px}
+    .nav-links{display:none}
+  }
+  @media(max-width:560px){
+    .hero{padding:62px 0 48px}
+    section{padding:65px 0}
+    h1{font-size:50px}
+    h2{font-size:40px}
+    .lead{font-size:17px}
+    .quote{font-size:21px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="mark">t</span> Tabby AI | Smart Payment Advisor</a>
+    <nav class="nav-links">
+    <a href="#overview">Overview</a>
+  <a href="#problem">Problem</a>
+  <a href="#research">Research</a>
+  <a href="#insight">Insight</a>
+  <a href="#solution">Solution</a>
+  <a href="#flow">User Flow</a>
+  <a href="#screens">Screens</a>
+  <a href="#prototype">Prototype</a>
+  <a href="#edge">Edge Cases</a>
+  <a href="#metrics">Metrics</a>
+  <a href="#value">Business Value</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Concept</div>
+      <h1><span>Tabby AI</span><span class="accent">مستشارك الذكي</span></h1>
+      <p class="lead">قبل ما تقسط، افهم التزاماتك! مساعد ذكاء اصطناعي داخل تجربة تابي يعمل كمستشار ذكي يساعد المستخدم على معرفة مدى ملاءمة خطة الدفع للمبلغ الذي حدده لنفسه وللالتزامات الحالية الظاهرة في حسابه</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#prototype">جرّب النموذج التفاعلي ↓</a>
+      </div>
+      <div class="hero-note">هذه الميزة المقترحة  تصوّر تصميمي مستقل من إعداد شخصي، وليست ميزة رسمية أو مطبّقة أو معتمدة من تابي، الغرض من هذا الموقع عرض دراسة الحالة واستعراض الفكرة.</div>
+    </div>
+
+    <div class="hero-card">
+      <div class="phone">
+        <div class="phone-top">
+          <div class="tiny-row"><span>Tabby</span><span>AI Advisor</span></div>
+        </div>
+        <div class="product">
+          <div class="product-visual">⌘</div>
+          <div class="product-title">MacBook Air</div>
+          <div class="price">4,299 SAR</div>
+          <div class="ai-card">
+            <div class="ai-head"><span class="ai-dot"></span> هل هذا الشراء مناسب لك؟</div>
+            <div class="mini-score">82/100</div>
+            <div class="mini-copy">الخطة ضمن المبلغ الذي حددته، مع مراعاة التزاماتك الحالية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">01 · Overview</div>
+        <h2>من «كيف أدفع؟»<br>إلى «هل يناسبني؟»</h2>
+      </div>
+      <p class="section-intro">مستشارك الذكي لم يوضع عبثًا؛ وُضع في أكثر لحظة تحتاج فيها الرحلة إلى مساعدة وتخطيط مادي قبل الالتزام بخطة دفع  </p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>احتياجات العميل</h3>
+        <p>العميل بحاجة لأداة توازن قراراته مع التزاماته مو بس يقسّط عشوائي</p>
+      </div>
+      <div class="card">
+        <h3>عرض القيمة</h3>
+        <p>«اعرف تكلفة قرارك قبل ما تلتزم فيه» تحليل مبني على المبلغ الذي يحدده المستخدم والتزاماته الحالية داخل تابي</p>
+      </div>
+    </div>
+    <div class="quote">AI لا يدفع المستخدم إلى الشراء بجهل بل يساعده على اتخاذ قرار أكثر وعيًا وأقل ندمًا</div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">02 · Problem</div>
+        <h2>المشكلة المستهدفة</h2>
+      </div>
+      <p class="section-intro">المشكلة ليست في التقسيط بل في إدارته!</p>
+    </div>
+    <div class="grid-3">
+      <div class="card white"><h3>01. غياب الوعي بالالتزامات</h3><p>بعض المستخدمين لا يدركون الحجم الفعلي لالتزاماتهم المالية القائمة عبر أقساط متعددة فيوافقون على التزام جديد دون تقييم واضح ليَعُوا لاحقًا حجم الضغط الناجم عن الدفعات المتراكمة وقت التسديد</p></div>
+      <div class="card white"><h3>02. التركيز على القسط</h3><p>«600 × 4» قد يبدو بسيطًا، لكن المستخدم قد لا يربطه بالتزاماته القادمة الأخرى مما يسبب ضغطًا ماليًّا</p></div>
+      <div class="card white"><h3>03. لا رؤية واضحة</h3><p>لو أراد المستخدم التحقق من قدرته على الالتزام الجديد، لا توجد وسيلة أو أداة داخل التطبيق تجمع أقساطه القائمة كلها في مكان واحد ليقارن بها مع الالتزام الجديد</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">03 · Research</div>
+        <h2>ما الذي نعرفه عن السوق الحالي؟</h2>
+      </div>
+      <p class="section-intro">الهدف من هذا البحث تحديد مدى توظيف AI في سوق اليوم وكيف يتم تطويره، خصوصًا أن 30% فقط من مستخدمي AI في التسوق يثقون تمامًا بتوصياته</p>
+    </div>
+
+    <div class="grid-2" style="margin-top:28px">
+      <div class="card white"><h3>تابي اليوم</h3><p>تصل خطط تابي الحالية إلى 50,000 ريال على 12 دفعة شهرية للعملاء المؤهلين وكلما ارتفع السقف، زادت الحاجة لأداة تقيّم القدرة الفعلية على الالتزام قبل الموافقة</p></div>
+      <div class="card white"><h3>تحوّل السوق</h3><p>مساعدات التسوق بالذكاء الاصطناعي أصبحت قادرة على مقارنة المنتجات، طرح أسئلة توضيحية، بناء دليل شراء، وعرض البدائل، لذلك وجود «مساعد تسوق بالـAI» وحده لم يعد فرصة تصميمية كافية بحد ذاتها</p></div>
+    </div>
+
+    <h3 style="margin:45px 0 16px;font-size:26px">الفجوة التنافسية</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>المنصة</th><th>التسوق</th><th>مقارنة المنتجات</th><th>مقارنة الأسعار</th><th>AI للتسوق</th><th>إدارة الدفعات</th><th>تحليل مبني على التزامات المستخدم داخل خدمة الدفع</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tabby</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓ في تجارب/وظائف معينة</td><td>✓</td><td class="focus-cell">الفرصة المقترحة</td></tr>
+          <tr><td>Tamara</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>✓</td><td>—</td></tr>
+          <tr><td>Amazon</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+          <tr><td>ChatGPT Shopping</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notice" style="margin-top:18px">ملاحظة: الجدول يلخص القدرات العامة المعلنة، وليس اختبارًا داخليًا للمنتجات «الفرصة المقترحة» تعني مساحة تصميمية صيغت لهذا المشروع، وليست ادعاءً بأن أي شركة لم تطوّر نموذجًا داخليًا مشابهًا</div>
+  </div>
+</section>
+
+<section id="insight">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">04 · Insight</div>
+        <h2>الـ AI يشرح القرار، لا يتخذه</h2>
+      </div>
+      <p class="section-intro">بسبب حساسية القرار المالي ومحدودية البيانات، صممت التجربة لدعم القرار، لا لإصدار حكم ائتماني أو اتخاذ القرار نيابة عن المستخدم</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>ما الذي يعرفه</h3><p>المبلغ الذي يدخله المستخدم، الالتزامات الحالية الظاهرة في تابي، سعر المنتج، وخطط الدفع المتاحة له</p></div>
+      <div class="card"><h3>ما لا يدّعيه </h3><p>لا يدّعي معرفة الدخل الكامل أو المصروفات أو كامل الوضع المالي للمستخدم، ولا يستبدل قرار الأهلية الرسمي</p></div>
+      <div class="card"><h3>ما يوضحه</h3><p>كم ستضيف الخطة؟ متى تستحق؟ كيف تقارن بالحد الذي حدده المستخدم؟ وهل توجد خطة أخرى أقرب إلى تفضيله؟</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="solution">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">05 · Solution</div>
+        <h2>الحل التصميمــــي<br> «مستشارك الذكي»</h2>
+      </div>
+      <p class="section-intro">ميزة تنقل المستخدم من التركيز على «سعر المنتج» إلى «تأثير هذا الشراء على التزامات المستخدم»</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card white">
+        <h3>الميزة الأساسية</h3>
+        <p><strong>هل أستطيع تحمّل تكلفة هذا الشراء؟</strong><br>زر «حلّل قدرتي على الدفع» يظهر في صفحة المنتج أو عند اختيار خطة الدفع.</p>
+      </div>
+      <div class="card white">
+        <h3>وظائفه الخمس</h3>
+        <p>1. تحليل القدرة على الشراء 2. اشرح لي القرار 3. بديل أفضل 4. أفضل وقت للشراء 5. اقتراح خطة دفع أنسب</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:22px">
+      <div class="card"><h3>1 · إدخال المستخدم</h3><p>«كم المبلغ المتاح لك حاليًا لهذا الشراء؟»</p></div>
+      <div class="card"><h3>2 · الدفعة المناسبة </h3><p>«كم تقدر تدفع في كل دفعة بدون ما يضغط عليك المبلغ؟»</p></div>
+      <div class="card"><h3>3 · الالتزامات الحالية</h3><p>عرض التزامات تابي الحالية المتاحة للمستخدم بدل مطالبته بإدخالها يدويًا</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">06 · User Flow</div>
+        <h2>من لحظة تردد<br>إلى قرار واضــح</h2>
+      </div>
+      <p class="section-intro">المسار الأساسي يركز على جمع أقل عدد ممكن من المدخلات، ثم تفسير النتيجة، ثم تقديم طريق واضح للخطوة التالية</p>
+    </div>
+
+    <div class="flow" style="margin-bottom:32px">
+      <div class="node">صفحة المنتج</div><div class="arrow">←</div>
+      <div class="node core">حلّل قدرتي على الدفع</div><div class="arrow">←</div>
+      <div class="node">تعريف بالمساعد الذكي</div><div class="arrow">←</div>
+      <div class="node">المبلغ المتاح</div><div class="arrow">←</div>
+      <div class="node">الدفعة المناسبة</div><div class="arrow">←</div>
+      <div class="node">الالتزامات الحالية</div><div class="arrow">←</div>
+      <div class="node core">التحليل</div><div class="arrow">←</div>
+      <div class="node">النتائج</div><div class="arrow">←</div>
+      <div class="node">لماذا؟</div><div class="arrow">←</div>
+      <div class="node">خطط بديلة</div><div class="arrow">←</div>
+      <div class="node core">إتمام الدفع</div>
+    </div>
+
+    <div class="flow-section">
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div><h4>ابدأ التحليل</h4><p>المستخدم يرى المنتج ويختار «حلّل قدرتي على الدفع»</p></div></div>
+        <div class="step"><div class="step-num">02</div><div><h4>ادخل المبلغ المتاح</h4><p>نقيس ما خصصه المستخدم لهذه العملية، لا راتبه</p></div></div>
+        <div class="step"><div class="step-num">03</div><div><h4>حدد الدفعة المناسبة لك</h4><p>يمكنه اختيار حد تقريبي، أو «غير متأكد» ليحصل على مساعدة</p></div></div>
+        <div class="step"><div class="step-num">04</div><div><h4>ادخل البيانات المتاحة تلقائيًا</h4><p>النظام يعرض الالتزامات الحالية داخل تابي، مع شفافية واضحة</p></div></div>
+        <div class="step"><div class="step-num">05</div><div><h4>استقبل نتيجة مفسرة</h4><p>مناسب / يحتاج انتباه / يتجاوز الحد الذي حددته مع سبب واضح</p></div></div>
+        <div class="step"><div class="step-num">06</div><div><h4>اتخذ الخطوة التالية</h4><p>جرّب خطة أخرى، قارن بديلًا، احفظ المنتج، أو انتقل للدفع</p></div></div>
+      </div>
+      <div class="logic">
+        <h3>منطق المستشار الذكي</h3>
+        <div class="logic-line"><strong>المدخلات:</strong> المبلغ الذي يحدده المستخدم + الدفعة المناسبة + التزامات تابي الظاهرة + سعر المنتج + الخطط المتاحة</div>
+        <div class="logic-line"><strong>الحسابات:</strong> القسط الجديد + الالتزامات المتزامنة + الفرق عن الحد الذي حدده المستخدم</div>
+        <div class="logic-line"><strong>المخرجات:</strong> حالة واضحة + توضيح «لماذا؟» + خطط بديلة</div>
+        <div class="logic-line"><strong>الحدود:</strong> لا يدّعي معرفة القدرة المالية الكاملة، ولا يفترض معلومات عن الدخل، ولا يُغني عن قرار الأهلية الرسمي</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screens">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">07 · Key Screens</div>
+        <h2>شرح افتراضي للتجربة </h2>
+      </div>
+      <p class="section-intro">هذه هي النواة التصميمية للــCase Study: من صفحة المنتج إلى تحليل AI ومقارنة خطط الدفع</p>
+    </div>
+
+    <div class="screen-grid">
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>1 / Product</span><span>Tabby</span></div>
+        <div class="product-visual" style="height:140px;font-size:46px">⌘</div>
+        <div class="screen-title">MacBook Air</div><div class="price">4,299 SAR</div>
+        <div class="ai-card"><div class="ai-head"><span class="ai-dot"></span>حلّل قدرتي على الدفع</div></div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>2 / Question</span><span>AI</span></div>
+        <div class="screen-title">خلنا نحسبها معك</div>
+        <div class="question">كم المبلغ المتاح لك حاليًا لهذا الشراء؟</div>
+        <div class="pill-grid"><div class="pill active">500 SAR</div><div class="pill">1,000 SAR</div><div class="pill">1,500 SAR</div><div class="pill">أدخل مبلغًا</div></div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>3 / Question</span><span>AI</span></div>
+        <div class="screen-title">وش الدفعة المناسبة لك؟</div>
+        <div class="question">اختر المبلغ المناسب أو الأقرب لك</div>
+        <div class="choice sel">300 SAR</div><div class="choice">500 SAR</div><div class="choice">700 SAR</div><div class="choice">غير متأكد</div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>4 / Commitments</span><span>AI</span></div>
+        <div class="screen-title">دفعاتك الحالية</div>
+        <div class="mock-row"><span>15 Sep</span><strong>250 SAR</strong></div>
+        <div class="mock-row"><span>20 Sep</span><strong>400 SAR</strong></div>
+        <div class="mock-row"><span>28 Sep</span><strong>300 SAR</strong></div>
+        <div class="reason"><strong>إجمالي الالتزامات القادمة</strong>950 SAR</div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>5 / Analysis</span><span>AI</span></div>
+        <div class="score-box"><div class="score">76/100</div><span class="status warn">يحتاج انتباه</span></div>
+        <div class="reason"><strong>جاري تحليل الخطة</strong>سنقارن الدفعة الجديدة بالتزاماتك والحد الذي حددته.</div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>6 / Result</span><span>AI</span></div>
+        <div class="result-big"><div class="r-score">76</div><div class="r-label">Purchase Fit</div><div class="status warn">يحتاج انتباه</div></div>
+        <div class="reason"><strong>ليش؟</strong>القسط الجديد قريب من الحد الذي حددته ويتزامن مع التزامات قائمة.</div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>7 / Why</span><span>AI</span></div>
+        <div class="screen-title">اعتمدت النتيجة على:</div>
+        <div class="mock-row"><span>المبلغ المتاح</span><strong>1,000</strong></div>
+        <div class="mock-row"><span>القسط الجديد</span><strong>600</strong></div>
+        <div class="mock-row"><span>التزامات حالية</span><strong>400</strong></div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>8 / Alternatives</span><span>AI</span></div>
+        <div class="screen-title">خطة أقرب لك</div>
+        <div class="mock-row"><span>4 دفعات</span><strong>600 × 4</strong></div>
+        <div class="mock-row"><span>6 دفعات</span><strong>400 × 6</strong></div>
+        <div class="mock-row"><span>8 دفعات</span><strong>300 × 8</strong></div>
+        <div class="reason"><strong>الأقرب للحد الذي حددته</strong>300 SAR لكل دفعة</div>
+      </div></div>
+
+      <div class="screen-card"><div class="screen-shell">
+        <div class="screen-top"><span>9 / Checkout</span><span>AI</span></div>
+        <div class="screen-title">جاهز للقرار</div>
+        <div class="cta-row"><button class="btn btn-primary">اختيار الخطة</button><button class="btn btn-secondary">احفظ وانتظر</button></div>
+        <div class="reason"><strong>ملاحظة</strong>احفط هذه الخطة لهذا المنتج وعد إليها لاحقًا</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="prototype">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">08 · Interactive Prototype</div>
+        <h2>جرب الميزة</h2>
+      </div>
+      <p class="section-intro">نموذج بسيط يوضح منطق التجربة، اختار المبلغ والحد المناسب وشاهد كيف تتغير النتيجة</p>
+    </div>
+
+    <div class="prototype">
+      <div class="demo-wrap">
+        <div class="demo-phone">
+          <div class="demo-header"><strong>Tabby</strong><span style="font-size:12px;color:#777">AI Advisor</span></div>
+          <div class="demo-body" id="demoBody"></div>
+          <div class="demo-footer" id="demoFooter"></div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="card white"><h3>سيناريو</h3><p>منتج بقيمة 2,400 ريال، المستخدم يريد معرفة ما إذا كانت خطة 600 × 4 تتناسب مع المبلغ الذي خصصه ومع التزاماته الحالية أم ستشكل ضغطا لاحقا عليه</p></div>
+        <div class="card white"><h3>حالة النتيجة</h3><p>النتيجة ليست «نعم/لا» فقط بل لدينا ثلاث حالات: ضمن الحد، يحتاج انتباه، أو يتجاوز الحد الذي حدده المستخدم</p></div>
+        <div class="card white"><h3>عنصر الثقة</h3><p> «لماذا؟» يشرح كل عنصر دخل في الحساب، حتى لا يعتمد المستخدم على نتيجة مغلفة لا يعرف أساسها</p></div>
+        <div class="notice">بالإمكان تطوير الأداة مستقبلا بمزايا أكثر وفق احتياجات العميل المستمرة والمتجددة</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="edge">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">09 · Edge Cases & Trust</div>
+        <h2>التصميم الجيد يظهر<br>في الحالات الصعبة</h2>
+      </div>
+      <p class="section-intro">الميزة لا تفترض أن كل المستخدمين لديهم نفس البيانات أو أن AI يعرف كل شيء</p>
+    </div>
+    <div class="grid-2">
+      <div class="card white"><h3>العميل لا يعرف المبلغ المتاح</h3><p>AI في هذه الحالة يساعده على تحديد الخطة الأنسب بناء على التزاماته الحالية في تابي</p></div>
+      <div class="card white"><h3>لا توجد التزامات</h3><p>AI يوضح أن التحليل لم يجد دفعات حالية ظاهرة في البيانات المتاحة له، دون ادعاء معرفة بقية التزامات المستخدم خارج نطاق تابي</p></div>
+      <div class="card white"><h3>لا توجد خطة بديلة</h3><p>لا يعرض خطة غير متاحة وإنما ينتقل إلى خيار الحفظ/الانتظار أو العودة إلى الدفع المعتاد</p></div>
+      <div class="card white"><h3>تغير السعر أو الأهلية</h3><p>يعاد التحليل عند تغير سعر المنتج أو الخيارات المتاحة، مع تنبيه المستخدم بدل عرض نتيجة قديمة</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="metrics">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">10 · Success Metrics</div>
+        <h2>كيف نعرف أن الفكرة نجحت؟</h2>
+      </div>
+      <p class="section-intro">نقيس جودة القرار ووضوحه، وليس فقط عدد عمليات الشراء</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>معدل استخدام المستشار</h3><p>نسبة المستخدمين الذين يبدأون تحليل القدرة على الدفع</p></div>
+      <div class="card"><h3>معدل تغيير الخطة</h3><p>كم مستخدمًا غيّر الخطة بعد رؤية التحليل</p></div>
+      <div class="card"><h3>وضوح القرار</h3><p>مدى فهم المستخدم لسبب النتيجة والالتزامات الناتجة عنها</p></div>
+      <div class="card"><h3>تفاعل "لماذا؟"</h3><p>التفاعل مع طبقة الشرح يختبر قيمة الذكاء الاصطناعي القابل للتفسير عمليًا</p></div>
+      <div class="card"><h3>معدل الحفظ/الانتظار</h3><p>هل يختار المستخدم الانتظار بدل الالتزام الفوري عندما تكون البيانات لا تدعم الشراء؟</p></div>
+      <div class="card"><h3>مؤشرات المخاطر طويلة الأمد</h3><p>يمكن لاحقًا دراسة مؤشرات التأخر أو الضغط المالي، لكن لا ينبغي افتراض أثر سببي قبل الاختبار الفعلي</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="value">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">11 · Business Value</div>
+        <h2>وش تكسب تابي؟</h2>
+      </div>
+      <p class="section-intro">المكاسب العائدة على تابي من تفعيل هذه الميزة</p>
+    </div>
+    <div class="source-list">
+       <div class="grid-3">
+      <div class="card white"><h3>ثقة أعمق مع العميل</h3><p>العميل هو المكسب الأول لتابي لذلك لما تابي تساعده يتخذ قرار واعٍ بدل ما يندفع للشراء بجهل، تتحول العلاقة من «مزود تقسيط» إلى «شريك في القرار المالي»</p></div>
+      <div class="card white"><h3>تقليل الندم وتراجع الطلبات</h3><p>الفرضية أن قرار شراء أكثر وعيًا قد يقلل احتمالية التأخر عن السداد لاحقًا، لكن هذا أثر يحتاج قياسًا فعليًا لا افتراضًا مسبقًا</p></div>
+      <div class="card white"><h3>تميز حقيقي عن المنافسين</h3><p>كما وضّح جدول الفجوة التنافسية، لا يوجد منافس مباشر يقدّم تحليلًا مبنيًا على التزامات المستخدم داخل خدمة الدفع نفسها</p></div>
+      <div class="card white"><h3>ولاء أطول للمنصة</h3><p>عميل يشعر أن التطبيق يحميه من قرارات متسرعة أقرب للاستمرار معه بدل الانتقال لمنافس وبهذه الطريقة سنصنع رابطة وثيقة تضمن للعميل أن تابي مهتم باحتياجاته</p></div>
+      <div class="card white"><h3>بيانات أدق لتحسين المنتج</h3><p>كل تفاعل مع «حلّل قدرتي على الدفع» يعطي تابي مؤشرات حقيقية عن سلوك اتخاذ القرار لدى المستخدمين</p></div>
+      <div class="card white"><h3>توافق مع اتجاه السوق</h3><p>يتماشى مع توجه عام نحو الشفافية المالية والذكاء الاصطناعي القابل للتفسير، بدل الاعتماد على نماذج مغلقة</p></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="notice"style="text-align:left">by Rehab Alshehri</div>
+    <div style="margin-top:18px">UX/UI Case Study · 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  const body = document.getElementById('demoBody');
+  const footer = document.getElementById('demoFooter');
+
+  const state = {
+    amount: 1000,
+    comfortable: 300,
+    commitments: 400,
+    aiSuggestedInstallment: 0,
+    aiSuggestedPayments: 0,
+    step: 1
+  };
+
+  function render(){
+
+    /* =========================
+       STEP 1 — المبلغ المتاح
+    ========================= */
+
+    if(state.step === 1){
+
+      body.innerHTML = `
+        <div class="demo-sub">
+          السعر: 2,400 SAR<br>
+          خلنا نحلل الخطة قبل الالتزام
+        </div>
+
+        <h3>
+          كم المبلغ المتاح لك<br>
+          لهذا الشراء؟
+        </h3>
+
+        <div class="demo-sub">
+          هذا ليس راتبك؛ إنما المبلغ الذي خصصته لهذه العملية
+        </div>
+
+        <div class="pill-grid">
+
+          ${[500,1000,1500].map(v => `
+            <button
+              class="pill ${state.amount === v ? 'active' : ''}"
+              data-amount="${v}">
+              ${v.toLocaleString()} SAR
+            </button>
+          `).join('')}
+
+          <button class="pill" data-amount="custom">
+            أدخل مبلغًا
+          </button>
+
+        </div>
+      `;
+
+      footer.innerHTML = `
+        <button
+          class="btn btn-primary"
+          id="next1"
+          style="width:100%;justify-content:center">
+          التالي
+        </button>
+      `;
+
+      document.querySelectorAll('[data-amount]').forEach(el => {
+
+        el.onclick = () => {
+
+          const v = el.dataset.amount;
+
+          if(v === 'custom'){
+
+            const entered = prompt(
+              'أدخل المبلغ المتاح لهذا الشراء:',
+              state.amount
+            );
+
+            const num = Number(entered);
+
+            if(Number.isFinite(num) && num > 0){
+              state.amount = num;
+            }
+
+          } else {
+
+            state.amount = Number(v);
+
+          }
+
+          render();
+        };
+
+      });
+
+      document.getElementById('next1').onclick = () => {
+        state.step = 2;
+        render();
+      };
+
+    }
+
+
+    /* =========================
+       STEP 2 — الدفعة المناسبة
+    ========================= */
+
+    else if(state.step === 2){
+
+      body.innerHTML = `
+        <div class="demo-sub">
+          المبلغ المتاح:
+          <strong>${state.amount.toLocaleString()} SAR</strong>
+        </div>
+
+        <h3>
+          كم تقدر تدفع في كل دفعة
+          بدون ما يضغط عليك المبلغ؟
+        </h3>
+
+        <div class="pill-grid">
+
+          ${[200,300,500].map(v => `
+            <button
+              class="pill ${state.comfortable === v ? 'active' : ''}"
+              data-comfort="${v}">
+              ${v} SAR
+            </button>
+          `).join('')}
+
+          <button
+            class="pill"
+            data-comfort="uncertain">
+            غير متأكد
+          </button>
+
+        </div>
+      `;
+
+      footer.innerHTML = `
+        <button
+          class="btn btn-primary"
+          id="next2"
+          style="width:100%;justify-content:center">
+          احسب النتيجة
+        </button>
+      `;
+
+      document.querySelectorAll('[data-comfort]').forEach(el => {
+
+        el.onclick = () => {
+
+          const v = el.dataset.comfort;
+
+          /* =========================
+             إذا المستخدم غير متأكد
+             ننتقل لشاشة اقتراح AI
+          ========================= */
+
+          if(v === 'uncertain'){
+
+            const remaining =
+              Math.max(0, state.amount - state.commitments);
+
+            /*
+              خيارات الخطط للشراء بقيمة 2,400
+              4 دفعات = 600
+              6 دفعات = 400
+              8 دفعات = 300
+            */
+
+            const plans = [
+              {
+                installment: 600,
+                payments: 4
+              },
+              {
+                installment: 400,
+                payments: 6
+              },
+              {
+                installment: 300,
+                payments: 8
+              }
+            ];
+
+            /*
+              نبحث عن أعلى خطة لا تتجاوز
+              المساحة المتبقية بعد الالتزامات.
+            */
+
+            let suggested = plans
+              .filter(plan => plan.installment <= remaining)
+              .sort((a,b) => b.installment - a.installment)[0];
+
+            /*
+              إذا لم توجد خطة مناسبة،
+              نستخدم الخطة الأقل كخيار توضيحي
+              داخل النموذج
+            */
+
+            if(!suggested){
+              suggested = plans[plans.length - 1];
+            }
+
+            state.aiSuggestedInstallment = suggested.installment;
+            state.aiSuggestedPayments = suggested.payments;
+
+            state.step = 2.5;
+
+            render();
+
+          } else {
+
+            state.comfortable = Number(v);
+
+            render();
+
+          }
+
+        };
+
+      });
+
+      document.getElementById('next2').onclick = () => {
+
+        state.step = 3;
+        render();
+
+      };
+
+    }
+
+
+    /* =========================
+       STEP 2.5 — اقتراح AI
+    ========================= */
+
+    else if(state.step === 2.5){
+
+      const suggested = state.aiSuggestedInstallment;
+      const payments = state.aiSuggestedPayments;
+
+      const remaining =
+        Math.max(0, state.amount - state.commitments);
+
+      body.innerHTML = `
+
+        <div class="demo-sub">
+          تحليل مستشارك الذكي
+        </div>
+
+        <h3>
+          ما دامك غير متأكد،
+          خلنا نقترح لك خطة مناسبة
+        </h3>
+
+        <div class="reason">
+
+          <strong>
+            اقتراح مستشارك الذكي
+          </strong>
+
+          <div style="
+            font-size:32px;
+            font-weight:800;
+            margin:12px 0;
+          ">
+            ${suggested} SAR
+          </div>
+
+          <div>
+            × ${payments} دفعات
+          </div>
+
+        </div>
+
+        <div class="reason">
+
+          <strong>
+            لماذا هذه الخطة؟
+          </strong>
+
+          <div style="margin-top:8px;line-height:1.7">
+
+            لديك
+            <strong>${state.amount.toLocaleString()} SAR</strong>
+            مخصصة لهذا الشراء،
+            و<strong>${state.commitments} SAR</strong>
+            من الالتزامات الحالية
+            بعد احتساب التزاماتك الحالية،
+            المساحة المتبقية هي
+            <strong>${remaining} SAR</strong>
+            لذلك يقترح لك المستشار خطة
+            <strong>${suggested} SAR</strong>
+            لكل دفعة بدل اختيار خطة قد تضغط على المبلغ الذي حددته
+
+          </div>
+
+        </div>
+
+        <div class="reason">
+
+          <strong>
+            الخطة المقترحة
+          </strong>
+
+          <div style="margin-top:8px">
+            ${suggested} × ${payments}= 2,400
+          </div>
+
+        </div>
+      `;
+
+      footer.innerHTML = `
+
+        <div class="cta-row">
+
+          <button
+            class="btn btn-primary"
+            id="useAI">
+            استخدام الخطة المقترحة
+          </button>
+
+          <button
+            class="btn btn-secondary"
+            id="chooseMyself">
+            اختار بنفسي
+          </button>
+
+        </div>
+      `;
+
+      /*
+        اعتماد اقتراح AI
+      */
+
+      document.getElementById('useAI').onclick = () => {
+
+        state.comfortable = suggested;
+
+        state.step = 3;
+
+        render();
+
+      };
+
+      /*
+        الرجوع لاختيار دفعة يدويًا
+      */
+
+      document.getElementById('chooseMyself').onclick = () => {
+
+        state.step = 2;
+
+        render();
+
+      };
+
+    }
+
+
+    /* =========================
+       STEP 3 — النتيجة
+    ========================= */
+
+    else {
+
+      /*
+        الخطة التي تم اختيارها
+        سواء يدويًا أو بواسطة AI
+      */
+
+      const newInstallment =
+        state.comfortable || 600;
+
+      const newPayments =
+        Math.round(2400 / newInstallment);
+
+      const total =
+        state.commitments + newInstallment;
+
+      let status = 'bad';
+      let label = 'يتجاوز المبلغ الذي حددته';
+      let score = 44;
+
+
+      /*
+        النتيجة الأساسية
+      */
+
+      if(total <= state.amount){
+
+        score = 82;
+        status = 'ok';
+        label = 'ضمن المبلغ الذي حددته';
+
+      }
+
+      else if(
+        newInstallment <= state.comfortable ||
+        total <= state.amount * 1.08
+      ){
+
+        score = 68;
+        status = 'warn';
+        label = 'يحتاج انتباه';
+
+      }
+
+
+      body.innerHTML = `
+
+        <div class="demo-sub">
+          تحليل مبني على بيانات هذا السيناريو
+        </div>
+
+        <div class="result-big">
+
+          <div class="r-score">
+            ${score}
+          </div>
+
+          <div class="r-label">
+            Purchase Fit
+          </div>
+
+          <span class="status ${status}">
+            ${label}
+          </span>
+
+        </div>
+
+
+        <div class="reason">
+
+          <strong>
+            الخطة
+          </strong>
+
+          ${newInstallment} × ${newPayments}
+
+        </div>
+
+
+        <div class="reason">
+
+          <strong>
+            الالتزامات القادمة
+          </strong>
+
+          ${state.commitments} SAR
+
+        </div>
+
+
+        <div class="reason">
+
+          <strong>
+            المبلغ الذي حددته
+          </strong>
+
+          ${state.amount.toLocaleString()} SAR
+
+        </div>
+
+
+        <div class="reason">
+
+          <strong>
+            لماذا؟
+          </strong>
+
+          القسط الجديد
+          ${newInstallment}
+          +
+          التزاماتك الحالية
+          ${state.commitments}
+          =
+          ${total.toLocaleString()}
+          خلال الفترة القادمة للتسديد
+
+        </div>
+
+      `;
+
+
+      footer.innerHTML = `
+
+        <div class="cta-row">
+
+          <button
+            class="btn btn-primary"
+            id="again">
+            أعد التحليل
+          </button>
+
+
+        </div>
+
+      `;
+
+
+      document.getElementById('again').onclick = () => {
+
+        state.step = 1;
+
+        state.aiSuggestedInstallment = 0;
+        state.aiSuggestedPayments = 0;
+
+        render();
+
+      };
+
+    }
+
+  }
+
+  render();
+
+})();
+</script>
+
+</body>
+</html>
