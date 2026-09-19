@@ -2,7 +2,8 @@ Tabby AI — Smart Payment Advisor
 
 A UX/UI case study for an AI-powered feature concept within the Tabby app, designed to help users understand whether a payment plan actually fits their finances before they commit to it.
 
-🔗 Live preview: byrehab.github.io/Tappy-AI
+🔗 Live preview: 
+https://byrehab.github.io/Tappy-AI/
 
 About the Project
 
