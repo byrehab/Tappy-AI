@@ -14,7 +14,7 @@ The amount the user sets aside for the purchase
 Their existing commitments already visible within Tabby
 The product price and available plan options
 
-The AI doesn't make the decision for the user, and it doesn't replace Tabby's official eligibility process. Its role is limited to showing the financial impact clearly, before commitment — with full transparency into how each result was calculated.
+The AI doesn't make the decision for the user, and it doesn't replace Tabby's official eligibility process. Its role is limited to showing the financial impact clearly, before commitment with full transparency into how each result was calculated.
 
 What's Covered
 
