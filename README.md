@@ -16,31 +16,11 @@ The AI doesn't make the decision for the user, and it doesn't replace Tabby's of
 
 ## What's Covered
 
-The case study walks through 11 sections:
-Overview: reframing the core question from "how do I pay?" to "does this fit me?"
-Problem: the real gap this feature addresses
-Research: market landscape and competitive positioning
-Insight: what the AI knows, what it doesn't claim, and why that matters
-Solution: the feature itself and its five core functions
-User Flow: the full journey, plus the underlying decision logic
-Key Screens: nine screens walking through the experience
-Interactive Prototype: a working demo of the actual logic
-Edge Cases & Trust: how the feature handles missing data and uncertainty
-Success Metrics: how the idea's impact would be measured
-Business Value: what this feature could mean for Tabby as a business
-The Interactive Prototype
+Overview: reframing the core question from "how do I pay?" to "does this fit me?" | Problem: the real gap this feature addresses | Research: market landscape and competitive positioning | Insight: what the AI knows, what it doesn't claim, and why that matters | Solution: the feature itself and its five core functions | User Flow: the full journey, plus the underlying decision logic | Key Screens: nine screens walking through the experience | Interactive Prototype: a working demo of the actual logic | Edge Cases & Trust: how the feature handles missing data and uncertainty | Success Metrics: how the idea's impact would be measured | Business Value: what this feature could mean for Tabby as a business 
 
 ## A working prototype built in vanilla JavaScript that simulates the advisor's actual logic:
 
-Collects the user's available amount and comfortable installment
-Suggests a plan automatically when the user is unsure
-Calculates a Purchase Fit score based on visible commitments
-Explains every result through a "Why?" breakdown
-Built With
-Plain HTML / CSS, no frameworks
-Vanilla JavaScript for the interactive prototype
-Fully responsive layout with native RTL support
-Disclaimer
+Collects the user's available amount and comfortable installment | Suggests a plan automatically when the user is unsure | Calculates a Purchase Fit score based on visible commitments | Explains every result through a "Why?" breakdown | Built With HTML / CSS, no frameworks | Vanilla JavaScript for the interactive prototype | Fully responsive layout with native RTL support | Disclaimer
 
 Tabby AI — Smart Payment Advisor is an independent UX/UI concept created for portfolio purposes. It is not an official Tabby product and does not represent a real financial or credit decision. Its sole purpose is to showcase a design concept.
 
