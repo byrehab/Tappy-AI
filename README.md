@@ -17,17 +17,17 @@ The AI doesn't make the decision for the user, and it doesn't replace Tabby's of
 ## What's Covered
 
 The case study walks through 11 sections:
-Overview — reframing the core question from "how do I pay?" to "does this fit me?"
-Problem — the real gap this feature addresses
-Research — market landscape and competitive positioning
-Insight — what the AI knows, what it doesn't claim, and why that matters
-Solution — the feature itself and its five core functions
-User Flow — the full journey, plus the underlying decision logic
-Key Screens — nine screens walking through the experience
-Interactive Prototype — a working demo of the actual logic
-Edge Cases & Trust — how the feature handles missing data and uncertainty
-Success Metrics — how the idea's impact would be measured
-Business Value — what this feature could mean for Tabby as a business
+Overview: reframing the core question from "how do I pay?" to "does this fit me?"
+Problem: the real gap this feature addresses
+Research: market landscape and competitive positioning
+Insight: what the AI knows, what it doesn't claim, and why that matters
+Solution: the feature itself and its five core functions
+User Flow: the full journey, plus the underlying decision logic
+Key Screens: nine screens walking through the experience
+Interactive Prototype: a working demo of the actual logic
+Edge Cases & Trust: how the feature handles missing data and uncertainty
+Success Metrics: how the idea's impact would be measured
+Business Value: what this feature could mean for Tabby as a business
 The Interactive Prototype
 
 ## A working prototype built in vanilla JavaScript that simulates the advisor's actual logic:
